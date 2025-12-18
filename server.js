@@ -3,21 +3,16 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Public')));
 
-const usersRouter = require('./routes/userRoutes');
-
-app.set('view engine', 'ejs');
-app.set('views', './views');
+const usersRouter = require('./Public/routes/userRoutes');
 
 app.use('/users', usersRouter);
-app.get('/', (req, res) => {
-});
 
 app.get('/', (req, res) => {
-  res.render('index', { pageTitle: 'Home' });
+  res.sendFile(path.join(__dirname, 'Public', 'index.html'));
 });
 
 app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server listening at http://localhost:${port}`);
 });

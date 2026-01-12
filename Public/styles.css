@@ -1,13 +1,120 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 50px;
-    background-color: #f4f4f4;
+    background-color: #b4fff9;
 }
-h1 {
-    color: #333;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fire Sans', sans-serif;
 }
-button {
-    color: #00e1ff;
-    font-size: 15px;
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    flex: 1 1 0;
+    max-width: 300px;
+    padding: 2rem 1rem;
+    background-color: #1e1e1e;
+}
+
+.sidebar h3 {
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 150;
+}
+
+.sidebar .sidemenu {
+    margin: 0 -1rem;
+}
+
+.sidebar .sidemenu .sidemenu-item {
+    display: block;
+    padding: 1em;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+
+.sidebar .sidemenu .sidemenu-item:hover,
+.sidebar .sidemenu .sidemenu-item.is-active {
+    color: #a48bff;
+    border-right: 5px solid #a48bff;
+}   
+
+.Selection {
+    flex: 1 1 0;
+    padding: 2rem;
+}
+
+.Selection h1 {
+    color: #000000;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+};
+
+.Selection p {
+    color: black;
+}
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 99px;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.hamburger {
+    position: relative;
+    top: calc(50% - 20px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;;
+}
+
+.hamburger > span,
+.hamburger > span::before,
+.hamburger > span::after {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 99px;
+    transition-duration: .25s;
+}
+@media (max-width: 1024px) {
+    .sidebar {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .Selection {
+        padding-top: 8rem;
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        height: 100vh;
+        width: 100%;
+        max-width: 300px;
+        transition: 0.2s linear;
+    }
+
+    .sidebar.is-active {
+        left: 0;
+    }
 }
